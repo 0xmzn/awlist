@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/alecthomas/kong"
@@ -11,7 +12,7 @@ import (
 var version = "0.1.0"
 
 type App struct {
-	cli.Globals
+	Version  kong.VersionFlag `short:"V" help:"Show application version."`
 	Generate cli.GenerateCmd `cmd:"" help:"generate file from template"`
 }
 
@@ -21,7 +22,7 @@ func main() {
 	}
 
 	var app App
-	parser := kong.Must(&app,
+	parser, err := kong.New(&app,
 		kong.Name("awlist"),
 		kong.Description("A CLI tool for managing awesome-lists"),
 		kong.UsageOnError(),
@@ -30,10 +31,20 @@ func main() {
 		}),
 		kong.Vars{"version": version},
 	)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "Error creating parser:", err)
+		os.Exit(1)
+	}
 
 	ctx, err := parser.Parse(os.Args[1:])
-	parser.FatalIfErrorf(err)
+	if err != nil {
+		parser.Printf("%v", err)
+		os.Exit(1)
+	}
 
 	err = ctx.Run()
-	ctx.FatalIfErrorf(err)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
 }
