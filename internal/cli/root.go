@@ -1,7 +1,5 @@
 package cli
 
-import "github.com/alecthomas/kong"
-
 type Globals struct {
-    Version kong.VersionFlag `short:"V" help:"Show application version."`
+	DataFile string           `kong:"optional,name='data',short='d',help='Path to the YAML data file. Defaults to awesome.yaml in the current directory if present.'"`
 }
