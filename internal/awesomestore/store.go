@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/0xmzn/awlist/internal/model"
+	"github.com/0xmzn/awelist/internal/model"
 
 	"gopkg.in/yaml.v3"
 )
