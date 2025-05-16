@@ -7,7 +7,7 @@ import (
 	"os"
 	texttemplate "text/template"
 
-	"github.com/0xmzn/awlist/internal/awesomestore"
+	"github.com/0xmzn/awelist/internal/awesomestore"
 )
 
 type GenerateCmd struct {

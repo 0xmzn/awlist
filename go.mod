@@ -1,4 +1,4 @@
-module github.com/0xmzn/awlist
+module github.com/0xmzn/awelist
 
 go 1.24.2
 

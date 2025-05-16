@@ -6,7 +6,7 @@ import (
 
 	"github.com/alecthomas/kong"
 
-	"github.com/0xmzn/awlist/internal/cli"
+	"github.com/0xmzn/awelist/internal/cli"
 )
 
 var version = "0.1.0"
@@ -23,7 +23,7 @@ func main() {
 
 	var app App
 	parser, err := kong.New(&app,
-		kong.Name("awlist"),
+		kong.Name("awelist"),
 		kong.Description("A CLI tool for managing awesome-lists"),
 		kong.UsageOnError(),
 		kong.ConfigureHelp(kong.HelpOptions{
