@@ -8,6 +8,7 @@ import (
 	texttemplate "text/template"
 
 	"github.com/0xmzn/awelist/internal/awesomestore"
+	"github.com/0xmzn/awelist/internal/model"
 )
 
 type GenerateCmd struct {
@@ -34,6 +35,7 @@ func (cmd *GenerateCmd) Run() error {
 	}
 
 	awesomeData := store.Data()
+	model.Enrich(&awesomeData)
 
 	var outputWriter io.Writer
 	if cmd.OutputFile == "" {
