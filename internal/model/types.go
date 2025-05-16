@@ -8,10 +8,12 @@ type Link struct {
 
 type Category struct {
 	Title         string     `yaml:"title"`
-	Slug          string     `yaml:"slug"`
 	Description   string     `yaml:"description,omitempty"`
 	Links         []Link     `yaml:"links,omitempty"`
 	Subcategories []Category `yaml:"subcategories,omitempty"`
+
+	// drived
+	Slug          string     `yaml:"-"`
 }
 
 type AwesomeData []Category
