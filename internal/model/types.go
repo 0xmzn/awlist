@@ -1,7 +1,7 @@
 package model
 
 type Link struct {
-	Title       string `yaml:"title"`   
+	Title       string `yaml:"title"`
 	URL         string `yaml:"url"`
 	Description string `yaml:"description"`
 }
@@ -13,7 +13,7 @@ type Category struct {
 	Subcategories []Category `yaml:"subcategories,omitempty"`
 
 	// drived
-	Slug          string     `yaml:"-"`
+	Slug string `yaml:"-"`
 }
 
 type AwesomeData []Category
