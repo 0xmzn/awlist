@@ -13,7 +13,7 @@ var version = "0.1.0"
 
 type App struct {
 	Version  kong.VersionFlag `short:"V" help:"Show application version."`
-	Generate cli.GenerateCmd `cmd:"" help:"generate file from template"`
+	Generate cli.GenerateCmd  `cmd:"" help:"generate file from template"`
 }
 
 func main() {
