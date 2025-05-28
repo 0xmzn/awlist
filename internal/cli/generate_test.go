@@ -24,7 +24,6 @@ func TestGetOutputWriter_ValidFile(t *testing.T) {
 	tmpDir := t.TempDir()
 	outputPath := filepath.Join(tmpDir, "output.txt")
 
-
 	writer, closer, err := getOutputWriter(outputPath)
 	if err != nil {
 		t.Fatalf("expected no error, got %v", err)

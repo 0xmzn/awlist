@@ -18,4 +18,3 @@ func enrichCategory(cat *Category) {
 		enrichCategory(&cat.Subcategories[i])
 	}
 }
-
